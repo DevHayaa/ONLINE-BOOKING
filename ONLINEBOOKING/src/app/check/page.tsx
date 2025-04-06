@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Users, Plug, Fuel, Camera, Armchair, MapPlus } from 'lucide-react';
 import router from 'next/router';
+import Image from 'next/image';
+
 
 export default function CheckAvailability() {
   const searchParams = useSearchParams();
@@ -54,7 +56,16 @@ export default function CheckAvailability() {
       {checking ? (
         <div className="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-white z-50">
           <div className="text-center">
-            <img src="/Loader.gif" alt="Checking Availability" className="w-80 h-60 mx-auto" />
+
+
+<Image
+  src="/loader.jpg"
+  alt="Checking Availability"
+ width={112}
+  height={84}
+  className="w-80 h-60 mx-auto"
+/>
+
             {/* <p className="text-gray-700 mt-4 text-lg">
               Checking availability for vans in <strong>{pickup}</strong>
               <br />
@@ -68,8 +79,8 @@ export default function CheckAvailability() {
           <h2 className="text-red-600 font-bold text-xl mb-4">
             Unfortunately we do not rent time-traveling DeLoreans.
             <br />
-            You can't end your rental before it starts!
-          </h2>
+            You can&apos;t end your rental before it starts!
+            </h2>
           <p className="text-gray-700">
             Requested pickup date: {startDate} {startTime}
             <br />
@@ -93,11 +104,15 @@ export default function CheckAvailability() {
       >
         {/* Left: Image */}
         <div className="lg:w-1/3 w-full p-6">
-          <img
-            src={index === 0 ? '/van.jpg' : '/van2.jpg'}
-            alt="Van"
-            className="w-full h-72 object-cover rounded-md"
-          />
+
+<Image
+  src="/van.jpg"
+  alt="Van"
+  width={600}
+  height={400}
+  className="w-full h-72 object-cover rounded-md"
+/>
+
           <button className="mt-4 w-full border border-black py-2 text-sm font-medium hover:bg-gray-100 transition rounded">
             More Pictures
           </button>

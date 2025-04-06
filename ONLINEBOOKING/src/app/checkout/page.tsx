@@ -2,6 +2,8 @@
 
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
+
 
 export default function CheckoutPage() {
   const router = useRouter();
@@ -163,7 +165,13 @@ export default function CheckoutPage() {
           <div className="bg-gray-100 border-b p-4 font-bold">Rental Estimate</div>
           <div className="p-4 space-y-3 text-sm">
             <div className="flex items-center gap-4">
-              <img src="/van2.jpg" className="w-28 h-auto border rounded" alt="Van" />
+<Image
+  src="/van2.jpg"
+  alt="Van"
+  width={112}
+  height={84}
+  className="w-28 h-auto border rounded"
+/>
               <div>
                 <a href="#" className="text-blue-600 underline text-sm">Transit Transit Pictures</a>
                 <div className="text-xs text-gray-600">{van}</div>
@@ -198,7 +206,7 @@ export default function CheckoutPage() {
           <label className="flex items-start gap-2 px-4 pb-6 text-sm">
             <input type="checkbox" name="agreed" onChange={handleChange} />
             <span>
-              I agree to Bandago's <a className="text-blue-600 underline" href="#">Rental, Cancellation, and Mileage policies</a>.
+            I agree to Bandago&apos;s Rental, Cancellation, and Mileage policies.
             </span>
           </label>
 
