@@ -59,7 +59,7 @@ export default function CheckAvailability() {
 
 
 <Image
-  src="/loader.jpg"
+  src="/loader.gif"
   alt="Checking Availability"
  width={112}
   height={84}

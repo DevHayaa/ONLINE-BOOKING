@@ -96,56 +96,55 @@ export default function CheckoutPage() {
   ];
 
   return (
-    <div className="max-w-7xl mx-auto p-6">
-      <h2 className="text-center text-orange-600 font-bold text-xl mb-6">
+    <div className="max-w-7xl mx-auto p-4 sm:p-6">
+      <h2 className="text-center text-orange-600 font-bold text-lg sm:text-xl mb-6">
         TIME LEFT TO COMPLETE RESERVATION: {formatTime()}
       </h2>
-
+  
       <div className="flex flex-col lg:flex-row gap-6">
         {/* Renter Info */}
-        <div className="flex-1 border rounded bg-white shadow p-6">
-          <h3 className="text-lg font-bold mb-4">Renter Information</h3>
+        <div className="flex-1 border rounded bg-white shadow p-4 sm:p-6">
+          <h3 className="text-base sm:text-lg font-bold mb-4">Renter Information</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <input name="firstName" placeholder="First Name" onChange={handleChange} className="p-2 border rounded" />
-            <input name="lastName" placeholder="Last Name" onChange={handleChange} className="p-2 border rounded" />
-            <input name="organization" placeholder="Organization" onChange={handleChange} className="p-2 border rounded" />
-            <input name="street" placeholder="Street" onChange={handleChange} className="p-2 border rounded" />
-            <input name="city" placeholder="City" onChange={handleChange} className="p-2 border rounded" />
-            <select name="state" value={form.state} onChange={handleChange} className="p-2 border rounded">
+            <input name="firstName" placeholder="First Name" onChange={handleChange} className="p-2 border rounded w-full" />
+            <input name="lastName" placeholder="Last Name" onChange={handleChange} className="p-2 border rounded w-full" />
+            <input name="organization" placeholder="Organization" onChange={handleChange} className="p-2 border rounded w-full" />
+            <input name="street" placeholder="Street" onChange={handleChange} className="p-2 border rounded w-full" />
+            <input name="city" placeholder="City" onChange={handleChange} className="p-2 border rounded w-full" />
+            <select name="state" value={form.state} onChange={handleChange} className="p-2 border rounded w-full">
               <option value="">State</option>
               {states.map((s) => <option key={s}>{s}</option>)}
             </select>
-            <input name="zip" placeholder="Zip Code" onChange={handleChange} className="p-2 border rounded" />
-            <select name="country" value={form.country} onChange={handleChange} className="p-2 border rounded">
+            <input name="zip" placeholder="Zip Code" onChange={handleChange} className="p-2 border rounded w-full" />
+            <select name="country" value={form.country} onChange={handleChange} className="p-2 border rounded w-full">
               <option value="">Select Country</option>
               {countries.map((c) => <option key={c}>{c}</option>)}
             </select>
-            <input name="phone" placeholder="Cell Phone" onChange={handleChange} className="p-2 border rounded" />
-            <input name="email" placeholder="Email" onChange={handleChange} className="p-2 border rounded col-span-2" />
-            <textarea name="special" placeholder="Special Requests" onChange={handleChange} className="p-2 border rounded col-span-2" rows={3}></textarea>
+            <input name="phone" placeholder="Cell Phone" onChange={handleChange} className="p-2 border rounded w-full" />
+            <input name="email" placeholder="Email" onChange={handleChange} className="p-2 border rounded col-span-1 sm:col-span-2 w-full" />
+            <textarea name="special" placeholder="Special Requests" onChange={handleChange} className="p-2 border rounded col-span-1 sm:col-span-2 w-full" rows={3}></textarea>
           </div>
-
+  
           <label className="flex items-center gap-2 mt-4 text-sm">
             <input type="checkbox" name="smsUpdates" onChange={handleChange} />
             I agree to receive updates via text
           </label>
-
+  
           <div className="mt-6 text-sm border-t pt-4">
             <p className="font-bold mb-2">Renter Requirements</p>
-            <ul className="list-disc list-inside space-y-1">
+            <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">
               <li>25 years of age or older*</li>
               <li>Proof of current auto liability insurance</li>
               <li>A valid and current driver license</li>
             </ul>
           </div>
         </div>
-
-        {/* Summary Section - Matches Image Style */}
-        <div className="w-full lg:w-[500px] border rounded shadow bg-white overflow-hidden">
-          {/* Trip Itinerary */}
-          <div className="bg-gray-100 border-b p-4 font-bold">Trip Itinerary</div>
-          <div className="grid grid-cols-2 text-sm border-b">
-            <div className="p-4 border-r">
+  
+        {/* Summary Section */}
+        <div className="w-full lg:w-[480px] border rounded shadow bg-white overflow-hidden">
+          <div className="bg-gray-100 border-b p-4 font-bold text-sm sm:text-base">Trip Itinerary</div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 text-sm border-b">
+            <div className="p-4 border-b sm:border-b-0 sm:border-r">
               <div className="text-xs uppercase font-semibold text-gray-500">April 2025</div>
               <div className="text-3xl font-bold">22nd</div>
               <div className="text-sm">Tuesday</div>
@@ -160,23 +159,24 @@ export default function CheckoutPage() {
               <p className="text-xs text-gray-700">{dropoff}<br />{endDate} {endTime}</p>
             </div>
           </div>
-
+  
           {/* Rental Estimate */}
-          <div className="bg-gray-100 border-b p-4 font-bold">Rental Estimate</div>
+          <div className="bg-gray-100 border-b p-4 font-bold text-sm sm:text-base">Rental Estimate</div>
           <div className="p-4 space-y-3 text-sm">
-            <div className="flex items-center gap-4">
-<Image
-  src="/van2.jpg"
-  alt="Van"
-  width={112}
-  height={84}
-  className="w-28 h-auto border rounded"
-/>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <Image
+                src="/van2.jpg"
+                alt="Van"
+                width={112}
+                height={84}
+                className="w-28 h-auto border rounded"
+              />
               <div>
                 <a href="#" className="text-blue-600 underline text-sm">Transit Transit Pictures</a>
                 <div className="text-xs text-gray-600">{van}</div>
               </div>
             </div>
+  
             <div className="flex justify-between border-t pt-2">
               <p>Rented for 1 day(s) at ${price.toFixed(2)}/day:</p>
               <p>${price.toFixed(2)}</p>
@@ -191,29 +191,30 @@ export default function CheckoutPage() {
               <p>Taxable Subtotal</p><p>${subtotal.toFixed(2)}</p>
             </div>
             <div className="flex justify-between"><p>Florida Sales Tax @ 6.00%</p><p>${(subtotal * 0.06).toFixed(2)}</p></div>
-            <div className="flex justify-between"><p>Orlando County Sales Tax @ 0.50%</p><p>${(subtotal * 0.005).toFixed(2)}</p></div>
+            <div className="flex justify-between"><p>Orlando County Tax @ 0.50%</p><p>${(subtotal * 0.005).toFixed(2)}</p></div>
             <div className="flex justify-between"><p>CDW @ $20.00/day</p><p>${cdwFee}</p></div>
             <div className="flex justify-between font-bold text-lg border-t pt-2">
               <p>Estimated Total:</p><p>${total.toFixed(2)}</p>
             </div>
             <div className="bg-green-100 p-2 mt-3 rounded flex justify-between font-semibold text-green-700">
-              <p>Deposit Required To Reserve:</p>
+              <p>Deposit Required:</p>
               <p className="text-black font-bold text-lg">${deposit.toFixed(2)}</p>
             </div>
           </div>
-
-          <div className="bg-gray-100 border-t p-4 font-bold">Customer Agreement</div>
+  
+          {/* Agreement & Button */}
+          <div className="bg-gray-100 border-t p-4 font-bold text-sm sm:text-base">Customer Agreement</div>
           <label className="flex items-start gap-2 px-4 pb-6 text-sm">
             <input type="checkbox" name="agreed" onChange={handleChange} />
             <span>
-            I agree to Bandago&apos;s Rental, Cancellation, and Mileage policies.
+              I agree to Bandago&apos;s <a className="text-blue-600 underline" href="#">Rental, Cancellation, and Mileage policies</a>.
             </span>
           </label>
-
+  
           <div className="px-4 pb-6">
             <button
               onClick={handleSubmit}
-              className="w-full bg-green-600 text-white font-bold py-3 rounded hover:bg-green-700 transition"
+              className="w-full bg-green-600 text-white font-bold py-3 rounded hover:bg-green-700 transition text-sm sm:text-base"
             >
               RESERVE NOW: ${deposit.toFixed(2)}
             </button>
@@ -222,4 +223,5 @@ export default function CheckoutPage() {
       </div>
     </div>
   );
+  
 }
